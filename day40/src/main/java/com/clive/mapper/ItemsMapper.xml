@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 和绑定的接口全类名对应 -->
+<mapper namespace="com.clive.mapper.ItemsMapper">
+    <select id="findItemsAll" resultType="com.clive.bean.Items">
+    SELECT * FROM items
+    </select>
+	<select id="findItemsById" parameterType="int" resultType="com.clive.bean.Items">
+    SELECT * FROM items WHERE id = #{id}
+    </select>
+   <update id="updateitem" parameterType="com.clive.bean.Items">
+   UPDATE items SET name=#{name},price=#{price},detail=#{detail},pic=#{pic},createtime=#{createtime} WHERE id = #{id}
+   </update>
+</mapper>
